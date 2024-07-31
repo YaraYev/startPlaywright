@@ -119,9 +119,9 @@ test.describe('Registration Form tests', () => {
     test.describe('Successful registration', () => {
 
         test('Successful registration', async ({ page }) => {
-            await page.locator(firstNameId).fill('Deny')
-            await page.locator(lastNameId).fill('Moss')
-            await page.locator(emailId).fill('den@gmail.com')
+            await page.locator(firstNameId).fill('Solomon')
+            await page.locator(lastNameId).fill('Reed')
+            await page.locator(emailId).fill('sor@gmail.com')
             await page.locator(passwordId).fill('Password123')
             await page.locator(repeatPasswordId).fill('Password123')
             await page.locator(submitButton).click()
