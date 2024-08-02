@@ -8,7 +8,8 @@
     "test": "npx playwright test",
     "test:ui": "npx playwright test --ui",
     "report": "npx playwright show-report",
-    "test:regForm": "npx playwright test tests/regForm/regForm.spec.js"
+    "test:regForm": "npx playwright test tests/regForm/regForm.spec.js",
+    "test:regFormPOM": "npx playwright test tests/regForm/regFormPOM.spec.js "
   },
   "keywords": [],
   "author": "",
