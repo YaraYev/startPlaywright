@@ -8,12 +8,14 @@
     "test": "npx playwright test",
     "test:ui": "npx playwright test --ui",
     "report": "npx playwright show-report",
-    "test:regForm": "npx playwright test tests/regForm/regForm.spec.js"
+    "test:regForm": "npx playwright test tests/regForm/regForm.spec.js",
+    "test:regFormPOM": "npx playwright test tests/regForm/regFormPOM.spec.js "
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
     "@playwright/test": "^1.45.2",
     "@types/node": "^20.14.11"
   },
