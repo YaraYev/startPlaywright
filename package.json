@@ -9,7 +9,9 @@
     "test:ui": "npx playwright test --ui",
     "report": "npx playwright show-report",
     "test:regForm": "npx playwright test tests/regForm/regForm.spec.js",
-    "test:regFormPOM": "npx playwright test tests/regForm/regFormPOM.spec.js "
+    "test:regFormPOM": "npx playwright test tests/regForm/regFormPOM.spec.js",
+    "test:garageStorage": "npx playwright test tests/garage/garage.spec.js",
+    "test:garageStorage:debug": "npx playwright test tests/garage/garage.spec.js --debug"
   },
   "keywords": [],
   "author": "",
