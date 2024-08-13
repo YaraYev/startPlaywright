@@ -134,3 +134,4 @@ dist
 /playwright/.cache/
 /tests-examples
 tests/example.skip.spec.js
+state/

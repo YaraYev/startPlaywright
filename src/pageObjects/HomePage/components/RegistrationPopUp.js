@@ -27,7 +27,7 @@ export default class RegistrationPopup extends BaseComponent {
         await this.submitButton.click()
     }
 
-    async getErrorMessage() {
-        return this.errorMessage.textContent()
-    }
+    // async getErrorMessage() {
+    //     return this.errorMessage.textContent()
+    // }
 }

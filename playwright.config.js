@@ -18,6 +18,7 @@ const config = defineConfig({
   // testDir: './tests',
   testMatch: '/tests/**/*.spec.js',
   testIgnore: '/tests/**/*.skip.spec.js',
+  // globalSetup: './tests/setup/globalSetup.js',
   globalSetup: process.env.ENV === 'stage' ? './global.setup.js' : undefined,
   //globalTeardown: './global.teardown.js',
   /* Run tests in files in parallel */
@@ -53,7 +54,12 @@ const config = defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
+      name: "setup:stage",
+      testMatch: 'tests/setup/**/*.setup.js'
+    },
+    {
       name: 'chromium',
+      dependencies: ['setup:stage'],
       use: { ...devices['Desktop Chrome'] },
     },
 
