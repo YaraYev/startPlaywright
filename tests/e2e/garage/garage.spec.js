@@ -1,4 +1,4 @@
-import { userGaragePage, expect } from "../../src/fixtures/userGaragePage.js";
+import { userGaragePage, expect } from "../../../src/fixtures/myFixture.js";
 
 userGaragePage.describe('Garage', () => {
     userGaragePage.beforeEach(async ({ garagePage }) => {

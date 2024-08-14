@@ -8,10 +8,12 @@
     "test": "npx playwright test",
     "test:ui": "npx playwright test --ui",
     "report": "npx playwright show-report",
-    "test:regForm": "npx playwright test tests/regForm/regForm.spec.js",
-    "test:regFormPOM": "npx playwright test tests/regForm/regFormPOM.spec.js",
-    "test:garageStorage": "npx playwright test tests/garage/garage.spec.js",
-    "test:garageStorage:debug": "npx playwright test tests/garage/garage.spec.js --debug"
+    "test:regForm": "npx playwright test tests/e2e/regForm/regForm.spec.js",
+    "test:regFormPOM": "npx playwright test tests/e2e/regForm/regFormPOM.spec.js",
+    "test:garageStorage": "npx playwright test tests/e2e/garage/garage.spec.js",
+    "test:garageStorage:debug": "npx playwright test tests/e2e/garage/garage.spec.js --debug",
+    "test:mockUser": "npx playwright test tests/e2e/profile/profile.spec.js",
+    "test:createCarsAPI": "npx playwright test tests/api/createCar/createCar.spec.js"
   },
   "keywords": [],
   "author": "",
