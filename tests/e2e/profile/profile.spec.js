@@ -17,7 +17,7 @@ test.describe('User profile', () => {
         await page.reload()
 
         await expect(profilePage.btnEditProfile).toBeVisible()
-        await expect(profilePage.profileName).toHaveText('Vin Diesel')
+        await expect(profilePage.profileName).toHaveText(`${profile.data.name} ${profile.data.lastName}`)
 
     })
 })
