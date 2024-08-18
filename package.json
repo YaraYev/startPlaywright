@@ -13,7 +13,9 @@
     "test:garageStorage": "npx playwright test tests/e2e/garage/garage.spec.js",
     "test:garageStorage:debug": "npx playwright test tests/e2e/garage/garage.spec.js --debug",
     "test:mockUser": "npx playwright test tests/e2e/profile/profile.spec.js",
-    "test:createCarsAPI": "npx playwright test tests/api/createCar/createCar.spec.js"
+    "test:createCarsAPI": "npx playwright test tests/api/createCar/createCar.spec.js",
+    "test:createAllCarsAPI": "npx playwright test tests/api/createAllCars/createAllCars.spec.js",
+    "test:createFuelExpensesAPI": "npx playwright test tests/api/fuelExpenses/createFuelExpenses.spec.js"
   },
   "keywords": [],
   "author": "",
