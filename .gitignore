@@ -135,3 +135,4 @@ dist
 /tests-examples
 tests/example.skip.spec.js
 state/
+src/utils/carsModels.js
