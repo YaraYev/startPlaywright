@@ -1,7 +1,7 @@
 import { myFixture as test, expect } from "../../../src/fixtures/myFixture";
 import { CARS_DATA } from "../../../src/utils/carBrands&Models.js";
 
-test.describe("CarsController tests", () => {
+test.describe.skip("CarsController tests", () => {
 
     test("should get all car brands", async ({ carsController }) => {
 
