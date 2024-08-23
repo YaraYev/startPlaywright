@@ -62,6 +62,12 @@ const config = defineConfig({
       dependencies: ['setup:stage'],
       use: { ...devices['Desktop Chrome'] },
     },
+    {
+      name: 'chromium-no-setup',
+      use: { ...devices['Desktop Chrome'] },
+      testMatch: 'tests/api/cars/**/*.spec.js',
+      testIgnore: 'tests/api/cars/carsDomain.spec.js',
+    },
 
     // {
     //   name: 'firefox',

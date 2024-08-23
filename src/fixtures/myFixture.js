@@ -3,6 +3,7 @@ import GaragePage from "../pageObjects/GaragePage/GaragePage.js";
 import { USER_STORAGE_STATE_PATH } from "../utils/constants.js";
 import ProfilePage from "../pageObjects/profilePage/ProfilePage.js";
 
+
 export const myFixture = base.extend({
     page: async ({ browser }, use) => {
         const ctx = await browser.newContext({
