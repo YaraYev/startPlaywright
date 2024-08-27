@@ -3,14 +3,31 @@ import { CARS_DATA } from "../../../src/utils/carBrands&Models.js";
 
 test.describe("Create and delete cars", () => {
 
+    // test.afterEach(async ({ request }) => {
+    //     const carsList = await request.get('/api/cars')
+    //     const { data: cars } = await carsList.json()
+
+    //     await Promise.all(
+    //         cars.map(async (car) => {
+    //             const res = await request.delete(`/api/cars/${car.id}`)
+    //             await expect(res).toBeOK()
+    //         })
+    //     )
+    // })
+
     test.afterEach(async ({ request }) => {
         const carsList = await request.get('/api/cars')
         const { data: cars } = await carsList.json()
 
         await Promise.all(
             cars.map(async (car) => {
-                const res = await request.delete(`/api/cars/${car.id}`)
-                await expect(res).toBeOK()
+                const checkCar = await request.get(`/api/cars/${car.id}`)
+                if (checkCar.ok()) {
+                    const res = await request.delete(`/api/cars/${car.id}`)
+                    await expect(res).toBeOK();
+                } else {
+                    console.log(`Car with ID ${car.id} not found, skipping deletion.`)
+                }
             })
         )
     })
