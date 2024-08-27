@@ -24,10 +24,39 @@ jobs:
           HTTP_CREDENTIALS_USERNAME: ${{ secrets.HTTP_CREDENTIALS_USERNAME }}
           HTTP_CREDENTIALS_PASSWORD: ${{ secrets.HTTP_CREDENTIALS_PASSWORD }}
         run: npm run testApi
-      - name: "Upload report to artifacts"
+      - name: "Upload API report to artifacts"
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: ci-report
+          name: api-report
+          path: playwright-report/
+          retention-days: 3
+
+  e2e-tests:
+    runs-on: ubuntu-22.04
+    container: mcr.microsoft.com/playwright:v1.45.2-jammy
+    steps:
+      - name: "Checkout to tests repository"
+        uses: actions/checkout@v4
+        with:
+          repository: "${{ github.repository }}"
+          ref: ${{ github.ref }}
+      - name: "Install node js"
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: "Install dependencies"
+        run: npm ci
+      - name: "Run tests"
+        env:
+          BASE_URL: ${{ secrets.BASE_URL }}
+          HTTP_CREDENTIALS_USERNAME: ${{ secrets.HTTP_CREDENTIALS_USERNAME }}
+          HTTP_CREDENTIALS_PASSWORD: ${{ secrets.HTTP_CREDENTIALS_PASSWORD }}
+        run: npm run testE2E
+      - name: "Upload E2E report to artifacts"
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-report
           path: playwright-report/
           retention-days: 3
