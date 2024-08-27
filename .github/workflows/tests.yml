@@ -23,7 +23,7 @@ jobs:
           BASE_URL: https://qauto.forstudy.space
           HTTP_CREDENTIALS_USERNAME: guest
           HTTP_CREDENTIALS_PASSWORD: welcome2qauto
-        run: ls -a
+        run: npm run "test:api"
       - name: "Upload report to artifacts"
         if: failure()
         uses: actions/upload-artifact@v4
