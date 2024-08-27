@@ -20,7 +20,7 @@
     "test:postCarsAPI": "npx playwright test tests/api/cars/postCars.spec.js --project=chromium-no-setup",
     "test:putCarsAPI": "npx playwright test tests/api/cars/putCars.spec.js --project=chromium-no-setup",
     "test:deleteCarsAPI": "npx playwright test tests/api/cars/deleteCars.spec.js --project=chromium-no-setup",
-    "test:api": "npx playwright test tests/api"
+    "testApi": "npx playwright test tests/api"
   },
   "keywords": [],
   "author": "",

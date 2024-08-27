@@ -17,13 +17,13 @@ jobs:
         with:
           node-version: 20
       - name: "Install dependencies"
-        run: npm install
+        run: npm ci
       - name: "Run tests"
         env:
           BASE_URL: https://qauto.forstudy.space
           HTTP_CREDENTIALS_USERNAME: guest
           HTTP_CREDENTIALS_PASSWORD: welcome2qauto
-        run: npx playwright test tests/api
+        run: npm run testApi
       - name: "Upload report to artifacts"
         if: failure()
         uses: actions/upload-artifact@v4

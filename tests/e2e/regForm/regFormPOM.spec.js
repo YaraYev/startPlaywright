@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test"
-import HomePage from '../../src/pageObjects/HomePage/HomePage.js'
-import { VALID_USER, INVALID_USER } from '../../src/utils/test-data.js'
+import HomePage from '../../../src/pageObjects/HomePage/HomePage.js'
+import { VALID_USER, INVALID_USER } from '../../../src/utils/test-data.js'
 
 test.describe('Registration Form tests', () => {
     let homePage
