@@ -5,7 +5,7 @@ name: "Playwright tests"
  jobs:
    api-tests:
      runs-on: ubuntu-22.04
-     container: 'mcr.microsoft.com/playwright:v1.45.2-jammy'
+     container: mcr.microsoft.com/playwright:v1.45.2-jammy
      steps:
        - name: "Checkout to tests repository"
          uses: actions/checkout@v4
