@@ -20,12 +20,12 @@ jobs:
         run: npm ci
       - name: "Run tests"
         env:
-          BASE_URL: https://qauto.forstudy.space
-          HTTP_CREDENTIALS_USERNAME: guest
-          HTTP_CREDENTIALS_PASSWORD: welcome2qauto
+          BASE_URL: ${{ secrets.BASE_URL }}
+          HTTP_CREDENTIALS_USERNAME: ${{ secrets.HTTP_CREDENTIALS_USERNAME }}
+          HTTP_CREDENTIALS_PASSWORD: ${{ secrets.HTTP_CREDENTIALS_PASSWORD }}
         run: npm run testApi
       - name: "Upload report to artifacts"
-        if: failure()
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: ci-report
