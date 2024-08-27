@@ -1,0 +1,33 @@
+name: "Playwright tests"
+
+ on: push
+
+ jobs:
+   api-tests:
+     runs-on: ubuntu-22.04
+     container: 'mcr.microsoft.com/playwright:v1.45.2-jammy'
+     steps:
+       - name: "Checkout to tests repository"
+         uses: actions/checkout@v4
+         with:
+           repository: '${{ github.repository }}'
+           ref: ${{ github.ref }}
+       - name: "Install node js"
+         uses: actions/setup-node@v4
+         with:
+           node-version: 20
+       - name: "Install dependencies"
+         run: npm ci
+       - name: "Run tests"
+         env:
+           BASE_URL: https://qauto.forstudy.space
+           HTTP_CREDENTIALS_USERNAME: guest
+           HTTP_CREDENTIALS_PASSWORD: welcome2qauto
+         run: npm run test:api
+       - name: "Upload report to artifacts"
+         if: failure()
+         uses: actions/upload-artifact@v4
+         with:
+           name: ci-report
+           path: playwright-report/
+           retention-days: 3
