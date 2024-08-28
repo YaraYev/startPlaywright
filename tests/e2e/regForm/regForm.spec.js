@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test"
+import { VALID2_USER } from "../../../src/utils/test-data2"
 
 test.describe('Registration Form tests', () => {
 
@@ -119,11 +120,11 @@ test.describe('Registration Form tests', () => {
     test.describe('Successful registration', () => {
 
         test('Successful registration', async ({ page }) => {
-            await page.locator(firstNameId).fill('Solomon')
-            await page.locator(lastNameId).fill('Reed')
-            await page.locator(emailId).fill('sor@gmail.com')
-            await page.locator(passwordId).fill('Password123')
-            await page.locator(repeatPasswordId).fill('Password123')
+            await page.locator(firstNameId).fill(VALID2_USER.firstName)
+            await page.locator(lastNameId).fill(VALID2_USER.lastName)
+            await page.locator(emailId).fill(VALID2_USER.email)
+            await page.locator(passwordId).fill(VALID2_USER.password)
+            await page.locator(repeatPasswordId).fill(VALID2_USER.repeatPassword)
             await page.locator(submitButton).click()
             await expect(page.locator('text=Registration complete')).toBeVisible()
 
