@@ -40,7 +40,7 @@ test.describe("Create a car and add expenses", () => {
                 data: data
             })
 
-            const responseBody = await addExpensesRes.json();
+            const responseBody = await addExpensesRes.json()
             //console.log(responseBody)
 
             expect(addExpensesRes.status(), "Status code should be valid").toBe(200);
@@ -57,11 +57,32 @@ test.describe("Create a car and add expenses", () => {
         })
     })
 
+    // test.afterEach(async ({ request }) => {
+    //     if (createdCar && createdCar.id) {
+    //         const res = await request.delete(`/api/cars/${createdCar.id}`)
+    //         await expect(res).toBeOK()
+    //         //console.log(`Car with ID ${createdCar.id} was deleted.`)
+    //     }
+    // })
     test.afterEach(async ({ request }) => {
         if (createdCar && createdCar.id) {
-            const res = await request.delete(`/api/cars/${createdCar.id}`)
-            await expect(res).toBeOK()
-            //console.log(`Car with ID ${createdCar.id} was deleted.`)
+
+            const checkCarExists = await request.get(`/api/cars/${createdCar.id}`)
+
+            console.log(`Checking if car with ID ${createdCar.id} exists...`)
+            console.log(`Response status for car check: ${checkCarExists.status()}`)
+
+            if (checkCarExists.status() === 404) {
+                console.warn(`Car with ID ${createdCar.id} not found before deletion attempt.`)
+            } else {
+
+                const res = await request.delete(`/api/cars/${createdCar.id}`)
+                console.log(`Attempting to delete car with ID: ${createdCar.id}`)
+                console.log(`Delete response status: ${res.status()}`)
+                await expect(res).toBeOK()
+            }
+        } else {
+            console.warn("No car was created during the test, so nothing to delete.")
         }
     })
 })

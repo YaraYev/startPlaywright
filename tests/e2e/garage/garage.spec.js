@@ -1,15 +1,15 @@
-import { userGaragePage, expect } from "../../../src/fixtures/myFixture.js";
+import { myFixture, expect } from "../../../src/fixtures/myFixture.js";
 
-userGaragePage.describe('Garage', () => {
-    userGaragePage.beforeEach(async ({ garagePage }) => {
+myFixture.describe('Garage', () => {
+    myFixture.beforeEach(async ({ garagePage }) => {
         await garagePage.navigate()
     })
 
-    userGaragePage('should be able to open the garage', async ({ garagePage }) => {
+    myFixture('should be able to open the garage', async ({ garagePage }) => {
         await expect(garagePage.addCarButton).toBeVisible()
     })
 
-    userGaragePage('should be able to add a car', async ({ garagePage, page }) => {
+    myFixture('should be able to add a car', async ({ garagePage, page }) => {
         const car = {
             brand: "Porsche",
             model: "Cayenne",
